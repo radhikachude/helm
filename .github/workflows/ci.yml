@@ -32,26 +32,26 @@ jobs:
 
 # same for all repo
       - name: Pull Image from Docker Hub
-        run: docker pull radhikaschude/ScrumMasterUserManagment:latest
+        run: docker pull radhikaschude/spring-security-test:latest
 
       - name: Stop and Remove Old Container
         run: |
-          docker stop springboot-example-container || true
-          docker rm springboot-example-container || true
+          docker stop spring-security-test-container || true
+          docker rm spring-security-test-container || true
 
       - name: Run Docker Container
         run: |
-          docker run -d -p 8080:8080 --restart unless-stopped --name springboot-example-container radhikaschude/ScrumMasterUserManagment:latest    
+          docker run -d -p 8080:8080 --restart unless-stopped --name spring-security-test-container radhikaschude/spring-security-test:latest    
 
-
+#eureka
       - name: Pull Image from Docker Hub
-        run: docker pull radhikaschude/ScrumMasterUserManagment:latest
+        run: docker pull radhikaschude/eureka-server:latest
 
       - name: Stop and Remove Old Container
         run: |
-          docker stop springboot-example-container || true
-          docker rm springboot-example-container || true
+          docker stop eureka-server-container || true
+          docker rm eureka-server-container || true
 
       - name: Run Docker Container
         run: |
-          docker run -d -p 8080:8080 --restart unless-stopped --name springboot-example-container radhikaschude/ScrumMasterUserManagment:latest          
+          docker run -d -p 8080:8080 --restart unless-stopped --name eureka-server-container radhikaschude/eureka-server:latest          
