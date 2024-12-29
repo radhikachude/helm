@@ -15,8 +15,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      # - name: Login to Docker Hub
-      #   run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Pull Image from Docker Hub
         run: docker pull radhikaschude/scrummasterusermanagment:latest
@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Docker Container
         run: |
-          docker run -d -p 8080:8081 --restart unless-stopped --name scrum-master-user-managment-container radhikaschude/ScrumMasterUserManagment:latest
+          docker run -d -p 8080:8081 --restart unless-stopped --name scrum-master-user-managment-container radhikaschude/scrummasterusermanagment:latest
 
 # same for all repo
       - name: Pull Image from Docker Hub
