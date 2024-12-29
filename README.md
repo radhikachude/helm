@@ -3,7 +3,7 @@ jobs:
 
 deploy-to-prod:
 needs: build
-runs-on: aws-ec2 # Use appropriate OS
+runs-on: ip-172-31-21-21 # Use appropriate OS
 
     steps:
       - name: Checkout Repository
