@@ -15,17 +15,17 @@ jobs:
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
-    #  - name: Pull scrum-master-user-managment Image from Docker Hub
-     #   run: docker pull radhikaschude/scrummasterusermanagment:latest
+      - name: Pull scrum-master-user-managment Image from Docker Hub
+        run: docker pull radhikaschude/scrummasterusermanagment:latest
 
-     # - name: Stop and Remove Old scrum-master-user-managment Container
-      #  run: |
-       #   docker stop scrum-master-user-managment-container || true
-        #  docker rm scrum-master-user-managment-container || true
+      - name: Stop and Remove Old scrum-master-user-managment Container
+        run: |
+          docker stop scrum-master-user-managment-container || true
+          docker rm scrum-master-user-managment-container || true
 
-      #- name: Run Docker Container for scrum-master-user-managment
-      #  run: |
-       #   docker run -d -p 8081:8081 --restart unless-stopped --name scrum-master-user-managment-container radhikaschude/scrummasterusermanagment:latest
+      - name: Run Docker Container for scrum-master-user-managment
+        run: |
+          docker run -d -p 8081:8081 --restart unless-stopped --name scrum-master-user-managment-container radhikaschude/scrummasterusermanagment:latest
 
 # same for all repo
   #    - name: Pull spring-security-test Image from Docker Hub
